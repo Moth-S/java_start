@@ -1,0 +1,41 @@
+// Дан массив nums = [3,2,2,3] и число val = 3.
+// Если в массиве есть числа, равные заданному, нужно перенести
+// эти элементы в конец массива.Таким образом, первые несколько (или все) элементов массива
+// должны быть отличны от заданного, а остальные - равны ему.
+
+import java.util.Arrays;
+
+public class replaceElements {
+
+    public static void main(String[] args) {
+        int[] arr = { 3, 2, 2, 3, 4 };
+        int val = 3;
+        System.out.println(Arrays.toString(arr));
+        moveToEnd(arr, val);
+
+        System.out.println(Arrays.toString(arr));
+    }
+
+    public static void moveToEnd(int[] arr, int num) {
+
+        for (int index = 0; index < arr.length; index++) {
+            if (arr[index] == num) {
+                int indexEnd = arr.length - 1;
+                boolean isSwapped = false;
+                while (indexEnd > index) {
+                    if (arr[indexEnd] != num) {
+                        int temp = arr[indexEnd];
+                        arr[indexEnd] = arr[index];
+                        arr[index] = temp;
+                        isSwapped = true;
+                        break;
+                    }
+                    indexEnd--;
+                }
+                if (!isSwapped) {
+                    break;
+                }
+            }
+        }
+    }
+}
