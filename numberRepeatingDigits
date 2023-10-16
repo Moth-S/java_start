@@ -1,0 +1,22 @@
+public class numberRepeatingDigits {
+
+    public static void main(String[] args) {
+        int[] arr = { 1, 1, 1, 1, 0, 0, 0, 1, 1, 1 };
+        System.out.println(findMaxLen(arr));
+
+    }
+
+    public static int findMaxLen(int[] arr) {
+        int number = 0;
+        int maxNumber = 0;
+        for (int index = 0; index < arr.length; index++) {
+            if (arr[index] == 1) {
+                number++;
+                maxNumber = Math.max(number, maxNumber);
+            } else {
+                number = 0;
+            }
+        }
+        return maxNumber;
+    }
+}
