@@ -1,0 +1,30 @@
+ //Дано четное число N (>0) и символы c1 и c2.
+//📌 Написать метод, который вернет строку длины N, которая
+//состоит из чередующихся символов c1 и c2, начиная с c1.
+
+import java.util.Scanner;
+
+public class CharacterPair {
+
+    public static void main(String[] args) {
+        Scanner iScanner = new Scanner(System.in);
+        int n = iScanner.nextInt();
+        char c1 = iScanner.next().charAt(0);
+        char c2 = iScanner.next().charAt(0);
+        if (n % 2 == 0) {
+            System.out.println(alternatingСharacters(n, c1, c2));
+        } else {
+            System.out.println("n нечетное число");
+        }
+
+        iScanner.close();
+    }
+
+    public static String alternatingСharacters(int n, char c1, char c2) {
+        StringBuilder stringOfChar = new StringBuilder(n);
+        for (int index = 0; index < n / 2; index++) {
+            stringOfChar.append(c1).append(c2);
+        }
+        return stringOfChar.toString();
+    }
+}
